@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CH3 SQL - 笔记</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html" class="active"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li><li class="chapter-item expanded "><a href="CH7.html"><strong aria-hidden="true">7.</strong> CH7 数据库设计</a></li><li class="chapter-item expanded "><a href="CH8.html"><strong aria-hidden="true">8.</strong> CH8 数据库编程</a></li><li class="chapter-item expanded "><a href="CH10.html"><strong aria-hidden="true">9.</strong> CH10 数据库恢复技术</a></li><li class="chapter-item expanded "><a href="CH11.html"><strong aria-hidden="true">10.</strong> CH11 并发控制</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">笔记</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch3-sql"><a class="header" href="#ch3-sql">CH3 SQL</a></h1>
+<p>简述SQL语言的特点；</p>
+<ul>
+<li>综合统一</li>
+<li>高度非过程化</li>
+<li>面向集合的操作方式</li>
+<li>以同一种语法结构提供多种使用方式</li>
+<li>语言简洁，易学易用</li>
+</ul>
+<p>列出表级约束或行级约束的几个关键字，并解释其含义；</p>
+<ul>
+<li>PRIMARY KEY，主码</li>
+<li>FOREIGN KEY，外码</li>
+<li>UNIQUE，取唯一值</li>
+<li>NOT NULL 和 NULL 约束 </li>
+<li>DEFAULT 定义</li>
+<li>CHECK 约束</li>
+</ul>
+<p>简述索引的含义，并说明索引与ORDER BY的区别；</p>
+<ul>
+<li>索引：对表中的记录进行逻辑排序，加快检索的速度。</li>
+<li>区别：索引建立好后是时时刻刻保持有序的；ORDER BY 是每次询问都重新排序，本身并不存在实际对应的表结构。</li>
+</ul>
+<p>建表： CREATE TABLE&lt;表名&gt; ...（注意每一行末尾的','）(最后一行不加',')</p>
+<p>写出完整的SELECT语句的格式；</p>
+<pre><code class="language-SQL">select [all | distinct] &lt;目标列表达式&gt;[, &lt;目标别表达式&gt;] ...
+from &lt;表名或视图名&gt;[, &lt;表明或视图名&gt;] | (&lt;select 语句&gt;) [AS] &lt;别名&gt;
+[where &lt;条件表达式&gt;]
+[group by &lt;列名 1&gt; [having &lt;条件表达式&gt;]]
+[order by &lt;列名 2&gt; [ASC | DESC]];
+</code></pre>
+<p>说明WHERE子句中的&lt;条件表达式&gt;，与HAVING子句中的&lt;组过滤表达式&gt;的区别；P99</p>
+<ul>
+<li>where 子句与 having 短语的区别在于作用对象不同。where 子句作用域基本表或视图，从中选择满足条件的元组。having 短语作用域组，从中选择满足条件的组。</li>
+</ul>
+<p>掌握关键字：DISTINCT, AS 别名,LIKE,BETWEEN AND, NULL等</p>
+<p>给出组函数（聚集函数）与单值函数的区别。</p>
+<ul>
+<li>聚集函数的作用对象往往是一列，而单值函数的作用对象往往是一个值。</li>
+<li>where 子句中是不能用聚集函数作为条件表达式的。聚集函数只能用于 select 子句和 group by 中的 having 子句。</li>
+</ul>
+<p>子查询的定义：在一个查询中嵌套另一个查询</p>
+<p>子查询注意事项；ALL, ANY ,EXISTS(子查询)的使用。</p>
+<p>用ALTER函数的 ADD，ALTER，DROP操作修改约束</p>
+<p>DROP函数的使用：</p>
+<pre><code class="language-SQL">DROP TABLE&lt;表名&gt; [CASCADE（没有限制条件） | RESTRICT（有限制条件，默认）] ；
+</code></pre>
+<p>索引：</p>
+<ul>
+<li>创建索引</li>
+</ul>
+<pre><code class="language-SQL">CREATE [UNIQUE（唯一索引）] INDEX&lt;索引名&gt; On &lt;索引名&gt;（属性名）；
+</code></pre>
+<ul>
+<li>删除索引</li>
+</ul>
+<pre><code class="language-SQL">DROP INDEX &lt;索引名&gt;；
+</code></pre>
+<ul>
+<li>对表中的记录进行逻辑排序，加快检索速度
+<ul>
+<li>缺点：耗费磁盘空间，降低了更新操作的性能（值真实存在内存空间中）</li>
+</ul>
+</li>
+<li>三类索引
+<ul>
+<li>普通索引</li>
+<li>唯一索引</li>
+<li>聚集索引（PRIMARY KEY 隐式创建）</li>
+</ul>
+</li>
+</ul>
+<p>数据操纵：</p>
+<ul>
+<li>Insert
+<pre><code class="language-SQL">Insert into &lt;表&gt; [VALUES()| Select ...];
+</code></pre>
+</li>
+<li>Update：
+<pre><code class="language-SQL">update &lt;表&gt; set &lt;列名&gt; = &lt;表达式&gt; [where];
+</code></pre>
+</li>
+<li>Delete:
+<pre><code class="language-SQL">Delete from &lt;表&gt; [where];
+</code></pre>
+</li>
+</ul>
+<p>视图：</p>
+<ul>
+<li>从一个或几个基本表导出的表（数据库只存储视图的定义，不存放视图对应的数据）</li>
+<li>创建
+<pre><code class="language-SQL">Create view &lt;视图名&gt;[(属性名)--虚列] As [where];
+</code></pre>
+</li>
+<li>删除
+<pre><code class="language-SQL">Drop view &lt;视图名&gt;;
+</code></pre>
+</li>
+</ul>
+<p>视图的作用；</p>
+<ul>
+<li>视图能够简化用户的操作</li>
+<li>视图使用户能以多种角度看待同一数据</li>
+<li>视图对重构数据库提供了一定程度的逻辑独立性</li>
+<li>视图能够对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+<p>视图的更新问题。</p>
+<ul>
+<li>由于视图时不实际存储数据的虚表，因此对视图的更新最终要转换为对基本表的更新。</li>
+<li>在关系数据库中，并不是所有的视图都是可更新的。一般地，行列子集视图是可更新的。</li>
+</ul>
+<p>表示今天：WHERE REGIST_DATE=GETDATE().</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="CH2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="CH4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="CH2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="CH4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

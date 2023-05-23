@@ -1,0 +1,1092 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>笔记</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li><li class="chapter-item expanded "><a href="CH7.html"><strong aria-hidden="true">7.</strong> CH7 数据库设计</a></li><li class="chapter-item expanded "><a href="CH8.html"><strong aria-hidden="true">8.</strong> CH8 数据库编程</a></li><li class="chapter-item expanded "><a href="CH10.html"><strong aria-hidden="true">9.</strong> CH10 数据库恢复技术</a></li><li class="chapter-item expanded "><a href="CH11.html"><strong aria-hidden="true">10.</strong> CH11 并发控制</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">笔记</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch1-绪论"><a class="header" href="#ch1-绪论">CH1 绪论</a></h1>
+<p>简述概念：数据，数据库，数据库管理系统，数据库系统；</p>
+<ul>
+<li>数据：描述事物的符号记录称为<strong>数据</strong>。</li>
+<li>数据库（DB）：<strong>数据库</strong>是长期储存在计算机内、有组织的、可共享的、大量数据的集合。数据库中的数据按一定的数据模型组织、描述和储存，具有较小的冗余度、较高的数据独立性和易扩展性，并可为各种用户共享。</li>
+<li>数据库管理系统（DBMS）：<strong>数据库管理系统</strong>是位于用户和操作系统之间的一层数据管理软件。</li>
+<li>数据库管理员（DBA）</li>
+</ul>
+<p>简述数据库管理系统DBMS的主要功能；</p>
+<ul>
+<li>数据定义功能（DDL）</li>
+<li>数据组织、存储和管理</li>
+<li>数据操纵功能（DML）</li>
+<li>数据库的事务管理和运行管理</li>
+<li>数据库的建立和维护功能（DCL）</li>
+<li>数据库通信（CM）</li>
+<li>其他功能</li>
+</ul>
+<p>使用计算机管理数据经历了哪几个阶段？各阶段的主要管理方式是什么？P7</p>
+<ul>
+<li>人工管理阶段</li>
+<li>文件系统阶段</li>
+<li>数据库系统阶段</li>
+</ul>
+<p>列出数据库技术的特点（至少3个以上）；</p>
+<ul>
+<li>数据结构化</li>
+<li>数据的共享性高、冗余度低且易扩充</li>
+<li>数据独立性高
+<ul>
+<li>物理独立性：用户的应用程序和数据库中数据的物理存储时相互独立的。</li>
+<li>逻辑独立性：用户的应用程序与数据库的逻辑结构是相互独立的。</li>
+</ul>
+</li>
+<li>数据由数据库管理系统统一管理和控制
+<ul>
+<li>数据的安全性保护</li>
+<li>数据的完整性检查</li>
+<li>并发控制</li>
+<li>数据库恢复</li>
+</ul>
+</li>
+</ul>
+<p>数据建模的三个要求是什么？TODO</p>
+<p>简述数据建模过程中的 ①概念模型、②逻辑模型和物理模型；</p>
+<ul>
+<li>概念模型：显示世界到信息世界的第一层抽象。</li>
+<li>逻辑模型：按计算机观点对数据建模，主要用于数据库管理系统的实现。层次模型、网状模型、关系模型等。</li>
+<li>物理模型：对数据的最底层抽象，描述数据在系统内部的表示方式和存取方法，或在磁盘或磁带上的存储方式和存取方法。</li>
+</ul>
+<p>E-R 图中，联系有哪几种？各表示了什么业务往来的含义？TODO</p>
+<ul>
+<li>一对一。对于实体集 A 中的每一个实体，实体集 B 中至多有一个（也可以没有）与之联系，反之亦然，则称实体集 A 与实体集 B 具有一对一联系，记为 1:1。</li>
+<li>一对多。</li>
+<li>多对多。</li>
+<li>单个实体型内的联系</li>
+<li>多个实体之间的联系</li>
+</ul>
+<p>数据逻辑模型三要素是什么？</p>
+<ul>
+<li>数据结构</li>
+<li>数据操作</li>
+<li>数据的完整性约束条件</li>
+</ul>
+<p>人们已经实现了的数据逻辑模型有哪些？（列出三种）</p>
+<ul>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型（属性的集合）</li>
+<li>面向对象数据模型</li>
+</ul>
+<p>关系型数据模型的三要素是什么？固有性质是什么？</p>
+<ul>
+<li>规范化的二维表</li>
+<li>增删改查</li>
+<li>实体完整性、参照完整性、用户定义的完整性</li>
+<li>关系的每一个分量必须是一个不可分的数据项。</li>
+</ul>
+<p>关系型数据模型中的完整性约束有哪些？简单加以说明；P45-48</p>
+<ul>
+<li>实体完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的主属性，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 不能取空值。</li>
+<li>参照完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的外码，它与基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的主码 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 相对应，则对于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 中每个元组在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 上的值必须：
+<ul>
+<li>或者取空值（<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 的每个属性值均为空值）;</li>
+<li>或者等于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 中某个元组的主码值。</li>
+</ul>
+</li>
+<li>用户定义的完整性。针对某一具体关系数据库的约束条件，它反映某一具体应用所设计的数据必须满足的语义要求。</li>
+</ul>
+<p>关系型数据模型的优缺点是什么？
+优点：</p>
+<ul>
+<li>关系模型与格式化模型和不同，它是建立在严格的数学概念的基础上的。</li>
+<li>关系模型的概念单一。</li>
+<li>关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>查询效率低</li>
+</ul>
+<p>给出数据库的三层模式结构，并加以说明；</p>
+<ul>
+<li>外模式也称子模式或用户模式。它是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据试图，是与某一应用有关的数据的逻辑表示。</li>
+<li>模式。也称逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</li>
+<li>内模式也称存储模式，一个数据库只有一个内模式。它是数据物理结构和存储方式的描述，是数据再数据库内部的组织方式。</li>
+</ul>
+<p>信息管理系统的组成部分：</p>
+<ul>
+<li>DBS=DBMS+DB+DBA+Application+Specification</li>
+</ul>
+<p>什么是数据独立性？在数据库系统中是如何实现的？</p>
+<ul>
+<li>数据独立性：把数据的具体组织六个数据库管理系统管理，使用户能逻辑地、抽象地处理数据，而不必关心数据在计算机中的具体表示方式和存储方式。
+<ul>
+<li>物理独立性：用户的应用程序和数据库中数据的物理存储时相互独立的。</li>
+<li>逻辑独立性：用户的应用程序与数据库的逻辑结构是相互独立的。</li>
+</ul>
+</li>
+<li>数据库管理系统在三级模式之间提供了两层映像：外模式/模式映像（保证逻辑独立性）和模式/内模式映像（保证物理独立性）。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch2-关系数据库关系数据模型理论"><a class="header" href="#ch2-关系数据库关系数据模型理论">CH2 关系数据库/关系数据模型理论</a></h1>
+<p>关系代数运算有哪些？哪些是基本的运算？</p>
+<ul>
+<li>并，差，交，笛卡尔积(集合运算)、选择，投影，连接，除（关系运算）</li>
+<li>并，差，笛卡尔，选择，投影</li>
+</ul>
+<p>有关的数据操作</p>
+<ul>
+<li>插入</li>
+<li>删除</li>
+<li>修改</li>
+</ul>
+<p>关系是以集合的方式操作的，关系的对象和操作结果都是元组的集合</p>
+<p>列出关系的几条性质（3-4条即可）；</p>
+<ul>
+<li>列是同质的，即每一列中的分量是统一类型的数据，来自同一个域。</li>
+<li>不同的列可出自同一个域，称其中的每一列为一个属性，不同的属性要给予不同的属性名。</li>
+<li>列的顺序无所谓，即列的次序可以任意交换。</li>
+<li>任意两个元组的候选码不能取相同的值。</li>
+<li>行的顺序无所谓，即行的次序可以任意交换。</li>
+<li>分量必须取原子值，即每一个分量都必须是不可分的数据项。</li>
+</ul>
+<p>码的概念，以及主属性、非主属性；</p>
+<ul>
+<li>某一属性组的值能唯一地表示一个元组，而不包含多余的属性，则称该属性组为候选码。</li>
+<li>候选码的诸属性称为主属性。</li>
+<li>不包含在任何候选码中的属性称为非主属性或非码属性。</li>
+</ul>
+<p>关系数据库的型和值：</p>
+<ul>
+<li>型：RDB模式，包括域的定义，以及在域上的关系模式</li>
+<li>值：某一时刻记录的集合</li>
+</ul>
+<p>什么是关系模型的实体完整性约束？举例说明。P45</p>
+<ul>
+<li>实体完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的主属性，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 不能取空值。</li>
+</ul>
+<p>什么是关系模型的参照完整性约束？举例说明。P47</p>
+<ul>
+<li>参照完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的外码，它与基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的主码 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 相对应，则对于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 中每个元组在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 上的值必须：
+<ul>
+<li>或者取空值（<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 的每个属性值均为空值）;</li>
+<li>或者等于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 中某个元组的主码值。</li>
+</ul>
+</li>
+</ul>
+<p>什么是关系模型的用户自定义完整性约束？举例说明。P48</p>
+<ul>
+<li>用户定义的完整性。针对某一具体关系数据库的约束条件，它反映某一具体应用所设计的数据必须满足的语义要求。</li>
+</ul>
+<p>操作需要进行的完整性检查：</p>
+<ul>
+<li>插入：全部</li>
+<li>删除：参照完整性</li>
+<li>更新：全部</li>
+</ul>
+<p>等值连接与自然连接的区别。</p>
+<ul>
+<li>自然连接是一种特殊的等值连接。他要求两个关系中进行比较的分量必须是同名的属性组，并且在结果中把重复的属性列去掉。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch3-sql"><a class="header" href="#ch3-sql">CH3 SQL</a></h1>
+<p>简述SQL语言的特点；</p>
+<ul>
+<li>综合统一</li>
+<li>高度非过程化</li>
+<li>面向集合的操作方式</li>
+<li>以同一种语法结构提供多种使用方式</li>
+<li>语言简洁，易学易用</li>
+</ul>
+<p>列出表级约束或行级约束的几个关键字，并解释其含义；</p>
+<ul>
+<li>PRIMARY KEY，主码</li>
+<li>FOREIGN KEY，外码</li>
+<li>UNIQUE，取唯一值</li>
+<li>NOT NULL 和 NULL 约束 </li>
+<li>DEFAULT 定义</li>
+<li>CHECK 约束</li>
+</ul>
+<p>简述索引的含义，并说明索引与ORDER BY的区别；</p>
+<ul>
+<li>索引：对表中的记录进行逻辑排序，加快检索的速度。</li>
+<li>区别：索引建立好后是时时刻刻保持有序的；ORDER BY 是每次询问都重新排序，本身并不存在实际对应的表结构。</li>
+</ul>
+<p>建表： CREATE TABLE&lt;表名&gt; ...（注意每一行末尾的','）(最后一行不加',')</p>
+<p>写出完整的SELECT语句的格式；</p>
+<pre><code class="language-SQL">select [all | distinct] &lt;目标列表达式&gt;[, &lt;目标别表达式&gt;] ...
+from &lt;表名或视图名&gt;[, &lt;表明或视图名&gt;] | (&lt;select 语句&gt;) [AS] &lt;别名&gt;
+[where &lt;条件表达式&gt;]
+[group by &lt;列名 1&gt; [having &lt;条件表达式&gt;]]
+[order by &lt;列名 2&gt; [ASC | DESC]];
+</code></pre>
+<p>说明WHERE子句中的&lt;条件表达式&gt;，与HAVING子句中的&lt;组过滤表达式&gt;的区别；P99</p>
+<ul>
+<li>where 子句与 having 短语的区别在于作用对象不同。where 子句作用域基本表或视图，从中选择满足条件的元组。having 短语作用域组，从中选择满足条件的组。</li>
+</ul>
+<p>掌握关键字：DISTINCT, AS 别名,LIKE,BETWEEN AND, NULL等</p>
+<p>给出组函数（聚集函数）与单值函数的区别。</p>
+<ul>
+<li>聚集函数的作用对象往往是一列，而单值函数的作用对象往往是一个值。</li>
+<li>where 子句中是不能用聚集函数作为条件表达式的。聚集函数只能用于 select 子句和 group by 中的 having 子句。</li>
+</ul>
+<p>子查询的定义：在一个查询中嵌套另一个查询</p>
+<p>子查询注意事项；ALL, ANY ,EXISTS(子查询)的使用。</p>
+<p>用ALTER函数的 ADD，ALTER，DROP操作修改约束</p>
+<p>DROP函数的使用：</p>
+<pre><code class="language-SQL">DROP TABLE&lt;表名&gt; [CASCADE（没有限制条件） | RESTRICT（有限制条件，默认）] ；
+</code></pre>
+<p>索引：</p>
+<ul>
+<li>创建索引</li>
+</ul>
+<pre><code class="language-SQL">CREATE [UNIQUE（唯一索引）] INDEX&lt;索引名&gt; On &lt;索引名&gt;（属性名）；
+</code></pre>
+<ul>
+<li>删除索引</li>
+</ul>
+<pre><code class="language-SQL">DROP INDEX &lt;索引名&gt;；
+</code></pre>
+<ul>
+<li>对表中的记录进行逻辑排序，加快检索速度
+<ul>
+<li>缺点：耗费磁盘空间，降低了更新操作的性能（值真实存在内存空间中）</li>
+</ul>
+</li>
+<li>三类索引
+<ul>
+<li>普通索引</li>
+<li>唯一索引</li>
+<li>聚集索引（PRIMARY KEY 隐式创建）</li>
+</ul>
+</li>
+</ul>
+<p>数据操纵：</p>
+<ul>
+<li>Insert
+<pre><code class="language-SQL">Insert into &lt;表&gt; [VALUES()| Select ...];
+</code></pre>
+</li>
+<li>Update：
+<pre><code class="language-SQL">update &lt;表&gt; set &lt;列名&gt; = &lt;表达式&gt; [where];
+</code></pre>
+</li>
+<li>Delete:
+<pre><code class="language-SQL">Delete from &lt;表&gt; [where];
+</code></pre>
+</li>
+</ul>
+<p>视图：</p>
+<ul>
+<li>从一个或几个基本表导出的表（数据库只存储视图的定义，不存放视图对应的数据）</li>
+<li>创建
+<pre><code class="language-SQL">Create view &lt;视图名&gt;[(属性名)--虚列] As [where];
+</code></pre>
+</li>
+<li>删除
+<pre><code class="language-SQL">Drop view &lt;视图名&gt;;
+</code></pre>
+</li>
+</ul>
+<p>视图的作用；</p>
+<ul>
+<li>视图能够简化用户的操作</li>
+<li>视图使用户能以多种角度看待同一数据</li>
+<li>视图对重构数据库提供了一定程度的逻辑独立性</li>
+<li>视图能够对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+<p>视图的更新问题。</p>
+<ul>
+<li>由于视图时不实际存储数据的虚表，因此对视图的更新最终要转换为对基本表的更新。</li>
+<li>在关系数据库中，并不是所有的视图都是可更新的。一般地，行列子集视图是可更新的。</li>
+</ul>
+<p>表示今天：WHERE REGIST_DATE=GETDATE().</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch4-数据库安全性"><a class="header" href="#ch4-数据库安全性">CH4 数据库安全性</a></h1>
+<p>三类安全问题：</p>
+<ul>
+<li>技术安全类</li>
+<li>管理安全类</li>
+<li>政策法律类</li>
+</ul>
+<p>安全性措施的五个层次：</p>
+<ul>
+<li>物理层</li>
+<li>人员层</li>
+<li>操作系统层</li>
+<li>网络层</li>
+<li>数据库系统层</li>
+</ul>
+<p>数据库安全性控制：</p>
+<ul>
+<li>安全性控制是数据库管理员的任务</li>
+<li>两类安全功能
+<ul>
+<li>用户管理</li>
+<li>数据库操作权限管理</li>
+</ul>
+</li>
+<li>安全系统的核心问题：身份识别（用户名+口令）</li>
+<li>四个概念
+<ul>
+<li>用户</li>
+<li>权限</li>
+<li>用户组：有相同级别和操作权限的一组用户</li>
+<li>角色：数据库角色是被命名的一组预定义的与数据库操作相关的权限，角色是权限的集合。</li>
+</ul>
+</li>
+</ul>
+<p>安全级别（自高向低）：A1 B3 B2 B1 C2 C1 D</p>
+<p>达到 C1、C2 安全级别的 DBMS 提供了哪些安全保护措施？</p>
+<ul>
+<li>C1：该级只提供了非常初级的自主安全保护，能够实现对用户和数据的分离，进行<strong>自主存取控制（DAC）</strong>，保护或限制用户权限的传播。</li>
+<li>C2：该级实际上是<strong>安全产品的最低档</strong>，提供受控的存取保护，即将 C1 级的 DAC 进一步细化，以个人身份注册负责，并实施审计和资源隔离（<strong>审计的最低级别</strong>）。</li>
+<li>从B1开始是<strong>真正意义上的安全产品</strong></li>
+</ul>
+<p>两种存取控制方式的描述；</p>
+<ul>
+<li>C1级：自主存取控制就是由用户（如数据库管理员）自主控制对数据库对象的操作权限，哪些用户可以对哪些对象、进行哪些操作，完全取决于用户之间的授权。任何用户只要需要，就有可能获得对任何对象的操作权限。这种存取控制方式非常灵活，但有时也容易失控。目前大多数数据库管理系统都支持自主存取控制方式。</li>
+<li>B1级：强制存取控制的思路是，为每一个数据库对象标以一定的密级（Classification level），对每一个用户都确定一个许可级别（Clearance level）。如密级可以分为绝密、机密、保密、秘密、公开等若干级别；而用户可以划分为一级用户（可以操作所有数据）、二级用户（可以操作除绝密以外的所有数据）、三级用户等。</li>
+</ul>
+<p>授权语句GRANT语句中的WITH GRANT OPTION ；</p>
+<pre><code class="language-SQL">Grant &lt;权限&gt;        //ALL PRIVILEGES 全部权限
+on Table &lt;表名&gt; 
+to &lt;用户&gt;           //PUBLIC 所有用户
+[WITH GRANT OPTION];//获得权限的用户可授权其他用户
+</code></pre>
+<p>收回权限语句REVOKE：</p>
+<pre><code class="language-SQL">REVOKE &lt;权限&gt;        //ALL PRIVILEGES 全部权限
+on Table &lt;表名&gt; 
+FROM &lt;用户&gt;           //PUBLIC 所有用户
+[CASCADE（级连，授权出去的全部撤销）| RESTRICT];
+</code></pre>
+<p>数据加密的两种方法：</p>
+<ul>
+<li>替换方法</li>
+<li>置换方法：重新排序</li>
+</ul>
+<p>数据加密的两种算法：</p>
+<ul>
+<li>DES（数据加密标准）：替换+置换，对称密钥</li>
+<li>RSA（公开密钥加密机制）：非对称密钥</li>
+</ul>
+<p>SQL的三种身份验证模式或安全管理模式：</p>
+<ul>
+<li>标准模式（SQL控制）</li>
+<li>集成模式（Windows控制）</li>
+<li>混合模式（SQL+Windows）</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch5-数据库完整性数据库的一致性ic业务规则动态"><a class="header" href="#ch5-数据库完整性数据库的一致性ic业务规则动态">CH5 数据库完整性//数据库的一致性：IC+业务规则（动态）</a></h1>
+<p>数据的完整性：</p>
+<ul>
+<li>数据的正确性</li>
+<li>数据的相容性</li>
+<li>防止不合语义，不正确的数据</li>
+</ul>
+<p>DMBS提供的三个功能：</p>
+<ul>
+<li>定义<strong>完整性约束</strong>条件的机制</li>
+<li>提供<strong>完整性检查</strong>的方法</li>
+<li><strong>违约处理</strong></li>
+</ul>
+<p>完整性违规的处理方式；</p>
+<ul>
+<li>用PRIMARY KEY定义了关系的主码后，每当用户对基本表插入一条记录或对主码进行更新操作时，DBMS将进行如下的检查：
+<ul>
+<li>检查主码是否唯一，如果不唯一则拒绝插入或修改；</li>
+<li>检查主码的各个属性是否为空，只要有一个为空就拒绝插入或修改。</li>
+</ul>
+</li>
+<li>参照完整性检查和违约处理 PPT P31</li>
+</ul>
+<p>完整性约束命名子句 CONSTRAINT的使用；PPT P38</p>
+<p>叙述触发器的作用及使用方法；</p>
+<ul>
+<li>触发器是用户定义在关系表上的一类由事件驱动的特殊过程。一旦定义，任何对表的增、删、改操作均由服务器自动激活相应的触发器。
+<ul>
+<li>由服务器自动激活</li>
+<li>可以进行更为复杂的检查和操作，具有更精细和更强大的数据控制能力 </li>
+</ul>
+</li>
+<li>触发器的执行,是由触发事件激活的,并由数据库服务器自动执行的。一个表上可能定义了多个触发器，比如多个BEFORE触发器，多个AFTER触发器等。同一个表上的多个触发器激活时遵循如下的执行顺序：
+<ul>
+<li>执行该表上的BEFORE触发器；</li>
+<li>激活触发器的SQL语句；</li>
+<li>执行该表上的AFTER触发器。</li>
+<li>对于同一种类型的BEFORE/AFTER触发器，按照“谁先创建谁先执行”的原则执行。</li>
+</ul>
+</li>
+</ul>
+<p>在SQL SERVER中，三类触发器。</p>
+<ul>
+<li>插入触发器；</li>
+<li>更新触发器；</li>
+<li>删除触发器。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch6-关系数据理论"><a class="header" href="#ch6-关系数据理论">CH6 关系数据理论</a></h1>
+<p>数据依赖：函数依赖和多值依赖</p>
+<ul>
+<li>完全函数依赖：如果 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>， 并且对于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 的任何一个真子集 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>，都有 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，则称 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 完全函数依赖。</li>
+<li>部分函数依赖：若 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>， 但 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 不完全函数依赖于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，则称 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 部分函数依赖。
+传递函数依赖：在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mclose">)</span></span></span></span> 中，如果 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，则称 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 传递函数依赖。</li>
+<li>多值函数依赖：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>。当且仅当对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mclose">)</span></span></span></span> 的任一关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>，给定的一对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span> 值，有一组 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 的值，这组值仅仅决定于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 值而与 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> 无关。</li>
+</ul>
+<p>范式：</p>
+<ul>
+<li>1NF：关系的每一个分量必须是一个不可分的数据项。</li>
+<li>2NF：每个非主属性完全函数依赖于码（<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>投影分解法）</li>
+<li>3NF：每个非主属性不传递依赖于码（<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>投影分解法）</li>
+<li>BCNF：所有函数依赖左边都是码（无多值依赖的最高等级）</li>
+<li>4NF：不允许有非平凡且非函数依赖的多值依赖</li>
+</ul>
+<p>如果表的范式级别低，容易出现什么问题？能举例说明其中一个问题；P179</p>
+<ul>
+<li>数据冗余。</li>
+<li>更新异常。</li>
+<li>插入异常。</li>
+<li>删除异常。</li>
+</ul>
+<p>给出部分函数依赖和完全函数依赖的说明；P181</p>
+<p>给出码的2个等价定义；全码 VS. 所有属性均为主属性。</p>
+<ul>
+<li>P40；P181；</li>
+<li>全码是整个属性组是码，只有一个码。所有属性均为主属性可能有多个码，多个码的并集为整个属性组。
+全码一定是所有属性均为主属性。</li>
+</ul>
+<p>规范化：</p>
+<ul>
+<li>低一级范式的关系模式，通过模式分解转化为若干高一级范式的关系模式的集合</li>
+<li>实质：概念的单一化</li>
+<li>不是规范化程度越高的关系模式就越好</li>
+</ul>
+<p>什么是函数依赖的逻辑蕴涵概念？</p>
+<ul>
+<li>设有关系模式R(U,F)，X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span></span></span></span> U、Y <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span></span></span></span> U，如果从 F 中的函数依赖能够推导出 X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y ，则称F逻辑蕴涵X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y，或称X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y 是 F 的逻辑蕴涵。</li>
+</ul>
+<p>什么是闭包：</p>
+<ul>
+<li>关系模式R(U,F)中，被F所逻辑蕴含的函数依赖的全体，记作F+</li>
+<li>属性闭包 PPT P91</li>
+</ul>
+<p>公理的两个性质：</p>
+<ul>
+<li>正确性：按公理推导出的所有函数依赖都是正确的（属于F+）</li>
+<li>完备性：公理能推导出所有的函数依赖</li>
+</ul>
+<p>函数依赖集：</p>
+<ul>
+<li>覆盖</li>
+<li>等价</li>
+</ul>
+<p>最小函数依赖集算法：</p>
+<ul>
+<li>右边拆成单属性</li>
+<li>左边既约化（最小化）</li>
+<li>无冗余</li>
+</ul>
+<p>Armstrong公理；</p>
+<ul>
+<li>设有关系模式R(U,F)，X、Y、Z均为U的子集，推理规则如下：
+<ul>
+<li>自反律：如果 Y <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span></span></span></span> X，则 X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y；</li>
+<li>增广律：如果 X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y，则 XZ <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> YZ；</li>
+<li>传递律：如果 X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Y、Y <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Z，则 X <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Z 。</li>
+</ul>
+</li>
+</ul>
+<p>模式分解的2个准则；</p>
+<ul>
+<li>无损连接分解。无损连接是指分解后的关系经过自然连接可以恢复成原来的关系。（一定能到达BCNF）</li>
+<li>保持函数依赖分解。保持函数依赖是指分解后的关系不能破坏原来的函数依赖（不能破坏原来的语义）。（分解后总可以到达3NF，不一定能到达BCNF）</li>
+</ul>
+<p>无损分解的判定：</p>
+<ul>
+<li>R1 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∩</span></span></span></span> R2 = R2 - R1</li>
+<li>R1 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∩</span></span></span></span> R2 = R1 - R2</li>
+<li>即共同属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> 不同属性</li>
+</ul>
+<p>保持函数依赖的模式分解是什么意思？</p>
+<ul>
+<li>保持函数依赖是指分解后的关系不能破坏原来的函数依赖（不能破坏原来的语义）。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch7-数据库设计某单位公司集团"><a class="header" href="#ch7-数据库设计某单位公司集团">CH7 数据库设计//某单位/公司/集团。。。。</a></h1>
+<p>简述数据库设计的几个阶段的工作内容；</p>
+<ul>
+<li>
+<p>需求分析阶段//DFD图+数据字典</p>
+<ul>
+<li>准确了解与分析用户需求（包括数据与处理）//最困难、最耗时</li>
+<li>调查的难点是“数据”+“处理”</li>
+</ul>
+</li>
+<li>
+<p>概念结构设计阶段//与具体的DBMS无关</p>
+<ul>
+<li>整个数据库设计的关键</li>
+<li>通过对用户需求进行综合、归纳与抽象，形成一个独立于具体DBMS的概念模型</li>
+<li>通过E-R图描述</li>
+</ul>
+</li>
+<li>
+<p>逻辑结构设计阶段//与DBMS有关</p>
+<ul>
+<li>将概念结构转换为某个DBMS所支持的数据模型</li>
+<li>对其进行优化（以规范化理论为指导）</li>
+</ul>
+</li>
+<li>
+<p>物理结构设计阶段//索引、聚集的考虑</p>
+<ul>
+<li>运用DBMS提供的数据库语言（如SQL）及宿主语言，根据逻辑设计和物理设计的结果</li>
+<li>步骤
+<ul>
+<li>确定物理结构（存取方法，存储结构）</li>
+<li>评价（时间，空间效率） </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据库实施阶段</p>
+<ul>
+<li>步骤
+<ul>
+<li>建立数据库</li>
+<li>编制与调试应用程序</li>
+<li>组织数据入库</li>
+<li>进行试运行</li>
+</ul>
+</li>
+<li>数据库应用系统经过试运行后即可投入正式运行</li>
+</ul>
+</li>
+<li>
+<p>数据库运行和维护阶段</p>
+<ul>
+<li>在数据库系统运行过程中必须不断地对其进行评价、调整与修改</li>
+<li>把数据库设计和对数据库中数据处理的设计紧密结合起来</li>
+<li>将这两个方面的需求分析、抽象、设计、实现在各个阶段同时进行，相互参照，相互补充，以完善两方面的设计</li>
+</ul>
+</li>
+<li>
+<p>需求分析与概念结构设计独立于数据库管理系统</p>
+</li>
+<li>
+<p>逻辑结构设计与物理结构设计与选用的DBMS有关</p>
+</li>
+</ul>
+<p>在逻辑结构设计阶段，如何处理E-R图中1:n的联系？P232</p>
+<ul>
+<li>可以转换成一个独立的关系模式，也可以与 n 端对应的关系模式合并。</li>
+</ul>
+<p>合并分E-R图时，可能会出现哪些冲突？</p>
+<ul>
+<li>属性冲突。
+<ul>
+<li>属性域冲突
+<ul>
+<li>属性值的类型</li>
+<li>取值范围</li>
+<li>取值集合不同</li>
+</ul>
+</li>
+<li>属性取值单位冲突</li>
+</ul>
+</li>
+<li>命名冲突。
+<ul>
+<li>同名异义：不同意义的对象在不同的局部应用中具有相同的名字</li>
+<li>异名同义（一义多名）：同一意义的对象在不同的局部应用中具有不同的名字</li>
+</ul>
+</li>
+<li>结构冲突。
+<ul>
+<li>同一对象在不同应用中具有不同的抽象</li>
+<li>同一实体在不同分E-R图中所包含的属性个数和属性排列次序不完全相同</li>
+<li>实体之间的联系在不同局部视图中呈现不同的类型</li>
+</ul>
+</li>
+</ul>
+<p>简述数据库的重组织和重构造的区别。P240</p>
+<ul>
+<li>数据库的重组织并不修改原设计的逻辑和物理机构，而数据库的重构造则不同，它是指部分修改数据库的模式和内模式。</li>
+</ul>
+<p>子模式含义；</p>
+<ul>
+<li>数据用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch8-数据库编程"><a class="header" href="#ch8-数据库编程">CH8 数据库编程</a></h1>
+<p>存储过程的作用及使用方法？</p>
+<ul>
+<li>存储过程：由PL/SQL语句书写的过程，经编译和优化后存储在数据库服务器中，使用时只要调用即可。 </li>
+<li>创建存储过程：
+CREATE Procedure 过程名（［参数1，参数2，...］） AS	&lt;PL/SQL块&gt;；
+过程名：数据库服务器合法的对象标识
+参数列表：用名字来标识调用时给出的参数值，必须指定值的数据类型。参数也可以定义输入参数、输出参数或输入/输出参数。默认为输入参数。
+过程体：是一个&lt;PL/SQL块&gt;。包括声明部分和可执行语句部分</li>
+<li>执行存储过程： 
+CALL/PERFORM  Procedure 过程名(［参数1，参数2，...］)；
+使用CALL或者PERFORM等方式激活存储过程的执行。
+在PL/SQL中，数据库服务器支持在过程体中调用其他存储过程</li>
+<li>删除存储过程
+DROP  PROCEDURE 过程名()；</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch10-数据库恢复技术-恢复机制的工作原理数据冗余"><a class="header" href="#ch10-数据库恢复技术-恢复机制的工作原理数据冗余">CH10 数据库恢复技术 //恢复机制的工作原理：数据冗余</a></h1>
+<p>DB处于一致性状态：DB中的数据满足完整性约束及业务的逻辑规则</p>
+<p>事物：</p>
+<ul>
+<li>数据库操作虚列</li>
+<li>不可分割的工作单位</li>
+<li>恢复和并发控制的基本单位</li>
+</ul>
+<p>事物的结尾：</p>
+<ul>
+<li>COMMIT         正常提交</li>
+<li>ROLLBACK/ABORT 回滚，异常结束</li>
+</ul>
+<p>对事物管理的要求：</p>
+<ul>
+<li>故障及恢复策略</li>
+<li>并发调度（封锁机制+可串行化调度）</li>
+<li>目的：保持ACID四个特性</li>
+</ul>
+<p>事务的 4 个特性是什么？举例说明其中的一个特性；</p>
+<ul>
+<li>原子性（Atomicity）//出故障
+事务的原子性强调了一个事务是一个逻辑工作单元，是一个整体，是不可分割的。一个事务所包含的操作要么全部做，要么全部不做。//2PL协议及其恢复机制</li>
+<li>一致性（Consistency）//事务的一致性
+一个事务执行一项数据库操作，事务将使数据库从一种一致性的状态变换成另一种一致性状态。 
+在事务执行前，总是假设数据库是一致的，那么当事务成功执行后，数据库肯定仍然是一致的。//可串行化调度/2PL协议</li>
+<li>隔离性（Isolation）
+如果每个事务单独执行能保持<strong>原子性和一致性</strong>，这些事务并发执行也能保持原子性和一致性，则是事务的隔离性。//封锁机制/时间印协议</li>
+<li>持续性（Durability ）//出故障
+事务的持久性是指一旦事务成功完成，该事务对数据库所施加的所有更新都是永久的。 //数据库备份技术</li>
+</ul>
+<p>故障（不可避免）</p>
+<ul>
+<li>系统故障</li>
+<li>认为故障</li>
+</ul>
+<p>故障类型有哪些？举例说明；</p>
+<ul>
+<li>事务内部的故障
+<ul>
+<li>可发现</li>
+<li>非预期（事物故障仅指此类）</li>
+<li>恢复：UNDO（未完成的）</li>
+</ul>
+</li>
+<li>系统故障
+称为<strong>软故障</strong>，是指造成系统停止运转的任何事件，使得系统要重新启动。 
+<ul>
+<li>整个系统的正常运行突然被破坏</li>
+<li>所有正在运行的事务都非正常终止</li>
+<li>不破坏数据库</li>
+<li>内存中数据库缓冲区的信息全部丢失</li>
+<li>恢复：UNDO（未完成的）+REDO（已提交的）  （重启时自动完成）</li>
+</ul>
+</li>
+<li>介质故障
+称为<strong>硬故</strong>障，指外存故障
+<ul>
+<li>磁盘损坏</li>
+<li>磁头碰撞</li>
+<li>操作系统的某种潜在错误</li>
+<li>瞬时强磁场干扰</li>
+<li>恢复：DB备份+UNDO+REDO  （DBA介入）</li>
+</ul>
+</li>
+<li>计算机病毒
+<ul>
+<li>一种人为的故障或破坏，是一些恶作剧者研制的一种计算机程序</li>
+<li>可以繁殖和传播</li>
+</ul>
+</li>
+</ul>
+<p>基于检查点故障恢复策略；日志文件概念；</p>
+<ul>
+<li>基于检查点故障恢复策略：
+<ul>
+<li>步骤
+<ul>
+<li>日志文件中增加检查点记录</li>
+<li>增加重新开始文件</li>
+</ul>
+</li>
+<li>检查点记录的内容
+<ul>
+<li>正在执行的事物清单</li>
+<li>最近的一个日志文件</li>
+</ul>
+</li>
+<li>重新开始文件的内容
+<ul>
+<li>记录各个检查点记录在日志文件中的地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>日志文件是用来记录事务对数据库的更新操作的文件。
+<ul>
+<li>对于以记录为单位的日志文件，日志文件中需要登记的内容包括：
+<ul>
+<li>各个事务的开始标记。</li>
+<li>各个事务的结束标记。</li>
+<li>各个事务的所有更新操作。</li>
+<li>格式：&lt;Ti,OP,X,V旧，V新&gt;（事务标识，操作类型，操作对象，旧值，新值）</li>
+</ul>
+</li>
+<li>以数据块为单位
+<ul>
+<li>事务标识</li>
+<li>数据块标识</li>
+</ul>
+</li>
+<li>按时间次序登记</li>
+<li>先写日志文件，后写数据库</li>
+</ul>
+</li>
+</ul>
+<p>故障恢复策略的工作原理：冗余。</p>
+<ul>
+<li>冗余=DB备份+数据同时存储在DB+日志文件</li>
+<li>建立方法
+<ul>
+<li>数据转储
+<ul>
+<li>静态与动态(需要建立日志文件)</li>
+<li>海量与增量</li>
+</ul>
+</li>
+<li>登录日志文件 </li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="ch11-并发控制"><a class="header" href="#ch11-并发控制">CH11 并发控制</a></h1>
+<p>什么是事务的串行调度？并发调度？</p>
+<ul>
+<li>串行调度：一个调度中，属于一个事务的所有操作连续执行，称之为串行调度。 </li>
+<li>并发调度：多个事务同时执行的调度。</li>
+</ul>
+<p>如果不加以控制，事务的并发调度可能会产生什么问题？</p>
+<ul>
+<li>丢失修改（写后写）
+<ul>
+<li>两个事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 读入同一数据并修改，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 提交的结果破坏了 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 提交的结果，导致 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的修改被丢失。</li>
+</ul>
+</li>
+<li>不可重复读（读后写）
+<ul>
+<li>指事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 读取数据后，事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 执行更新操作，使 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 无法再现前一次读取结果。</li>
+</ul>
+</li>
+<li>读脏数据（写后读）
+<ul>
+<li>指事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 修改某一数据并将其写回磁盘，事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 读取同一数据后，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 由于某种原因被撤销，这时被 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 修改过的数据恢复原值， <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 读到的数据就与数据库中的数据不一致，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 读到的数据就为脏数据。</li>
+</ul>
+</li>
+</ul>
+<p>数据的不一致性：</p>
+<ul>
+<li>并发操作破坏事物的隔离性</li>
+</ul>
+<p>简述封锁机制的工作原理；</p>
+<ul>
+<li>封锁就是事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 在对某个数据对象（例如表、记录等）操作之前，先向系统发出请求，对其加锁。</li>
+<li>加锁后事务 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 就对该数据对象有了一定的控制，在事务T释放它的锁之前，其它的事务不能更新此数据对象。</li>
+</ul>
+<p>锁的类型：</p>
+<ul>
+<li>排他锁（X锁）-写锁</li>
+<li>共享锁（S锁）-读锁</li>
+</ul>
+<p>引入封锁机制，如何解决上述3个问题？</p>
+<p><img src="./pic/11-1.bmp" alt="" /></p>
+<p><img src="./pic/11-2.bmp" alt="" /></p>
+<p><img src="./pic/11-3.bmp" alt="" /></p>
+<p>死锁预防</p>
+<ul>
+<li>一次封锁法
+<ul>
+<li>要求每个事务必须一次将所有要使用的数据全部加锁，否则就不能继续执行</li>
+<li>存在的问题
+<ul>
+<li>降低系统并发度</li>
+<li>难于事先精确确定封锁对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>顺序封锁法
+<ul>
+<li>顺序封锁法是预先对数据对象规定一个封锁顺序，所有事务都按这个顺序实行封锁。</li>
+<li>顺序封锁法存在的问题
+<ul>
+<li>维护成本：数据库系统中封锁的数据对象极多，并且在不断地变化。</li>
+<li>难以实现：很难事先确定每一个事务要封锁哪些对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>死锁诊断、死锁的判别；</p>
+<ul>
+<li>超时法
+<ul>
+<li>如果一个事务的等待时间超过了规定的时限，就认为发生了死锁</li>
+<li>优点：实现简单</li>
+<li>缺点
+<ul>
+<li>有可能误判死锁</li>
+<li>时限若设置得太长，死锁发生后不能及时发现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事务等待图法
+<ul>
+<li>用事务等待图动态反映所有事务的等待情况
+<ul>
+<li>事务等待图是一个有向图G=(T，U)</li>
+<li>T为结点的集合，每个结点表示正运行的事务</li>
+<li>U为边的集合，每条边表示事务等待的情况</li>
+<li>若T1等待T2，则T1，T2之间划一条有向边，从T1指向T2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>冲突操作对；</p>
+<ul>
+<li>指不同事物对同一个数据的读写操作和写写操作。</li>
+</ul>
+<p>可串行化调度：</p>
+<ul>
+<li>多个事物并发执行的结果与按某依次序串行执行的结果相同</li>
+</ul>
+<p>冲突可串行化：</p>
+<ul>
+<li>在保证冲突操作的次序不变的情况下交换两个事物不冲突操作的次序得到的调度是串行调度</li>
+</ul>
+<p>事务优先图；</p>
+<p>等价的串行调度；</p>
+<p>2PL协议；</p>
+<ul>
+<li>指所有事务必须分两个阶段对数据项加锁和解锁 
+<ul>
+<li>在对任何数据进行读、写操作之前，事务首先要获得对该数据的封锁</li>
+<li>在释放一个封锁之后，事务不再申请和获得任何其他封锁</li>
+</ul>
+</li>
+<li>两个阶段
+<ul>
+<li>扩展阶段</li>
+<li>收缩阶段</li>
+</ul>
+</li>
+<li>遵循两段锁协议也可能死锁</li>
+</ul>
+<p>多粒度封锁协议。</p>
+<ul>
+<li>在一个系统中同时支持多种封锁粒度供不同的事务选择</li>
+<li>选择封锁粒度
+<ul>
+<li>同时考虑封锁开销和并发度两个因素，适当选择封锁粒度
+<ul>
+<li>需要处理多个关系的大量元组的用户事务：以数据库为封锁单位</li>
+<li>需要处理大量元组的用户事务：以关系为封锁单元</li>
+<li>只处理少量元组的用户事务：以元组为封锁单位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在多粒度封锁中一个数据对象可能以两种方式封锁：显式封锁和隐式封锁</p>
+<p>意向锁；</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
