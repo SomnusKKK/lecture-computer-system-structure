@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html" class="active"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li><li class="chapter-item expanded "><a href="CH7.html"><strong aria-hidden="true">7.</strong> CH7 数据库设计</a></li><li class="chapter-item expanded "><a href="CH8.html"><strong aria-hidden="true">8.</strong> CH8 数据库编程</a></li><li class="chapter-item expanded "><a href="CH10.html"><strong aria-hidden="true">9.</strong> CH10 数据库恢复技术</a></li><li class="chapter-item expanded "><a href="CH11.html"><strong aria-hidden="true">10.</strong> CH11 并发控制</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html" class="active"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,66 +142,12 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="ch2-关系数据库关系数据模型理论"><a class="header" href="#ch2-关系数据库关系数据模型理论">CH2 关系数据库/关系数据模型理论</a></h1>
-<p>关系代数运算有哪些？哪些是基本的运算？</p>
-<ul>
-<li>并，差，交，笛卡尔积(集合运算)、选择，投影，连接，除（关系运算）</li>
-<li>并，差，笛卡尔，选择，投影</li>
-</ul>
-<p>有关的数据操作</p>
-<ul>
-<li>插入</li>
-<li>删除</li>
-<li>修改</li>
-</ul>
-<p>关系是以集合的方式操作的，关系的对象和操作结果都是元组的集合</p>
-<p>列出关系的几条性质（3-4条即可）；</p>
-<ul>
-<li>列是同质的，即每一列中的分量是统一类型的数据，来自同一个域。</li>
-<li>不同的列可出自同一个域，称其中的每一列为一个属性，不同的属性要给予不同的属性名。</li>
-<li>列的顺序无所谓，即列的次序可以任意交换。</li>
-<li>任意两个元组的候选码不能取相同的值。</li>
-<li>行的顺序无所谓，即行的次序可以任意交换。</li>
-<li>分量必须取原子值，即每一个分量都必须是不可分的数据项。</li>
-</ul>
-<p>码的概念，以及主属性、非主属性；</p>
-<ul>
-<li>某一属性组的值能唯一地表示一个元组，而不包含多余的属性，则称该属性组为候选码。</li>
-<li>候选码的诸属性称为主属性。</li>
-<li>不包含在任何候选码中的属性称为非主属性或非码属性。</li>
-</ul>
-<p>关系数据库的型和值：</p>
-<ul>
-<li>型：RDB模式，包括域的定义，以及在域上的关系模式</li>
-<li>值：某一时刻记录的集合</li>
-</ul>
-<p>什么是关系模型的实体完整性约束？举例说明。P45</p>
-<ul>
-<li>实体完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的主属性，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 不能取空值。</li>
-</ul>
-<p>什么是关系模型的参照完整性约束？举例说明。P47</p>
-<ul>
-<li>参照完整性。若属性 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 是基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的外码，它与基本关系 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的主码 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 相对应，则对于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 中每个元组在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 上的值必须：
-<ul>
-<li>或者取空值（<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 的每个属性值均为空值）;</li>
-<li>或者等于 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 中某个元组的主码值。</li>
-</ul>
-</li>
-</ul>
-<p>什么是关系模型的用户自定义完整性约束？举例说明。P48</p>
-<ul>
-<li>用户定义的完整性。针对某一具体关系数据库的约束条件，它反映某一具体应用所设计的数据必须满足的语义要求。</li>
-</ul>
-<p>操作需要进行的完整性检查：</p>
-<ul>
-<li>插入：全部</li>
-<li>删除：参照完整性</li>
-<li>更新：全部</li>
-</ul>
-<p>等值连接与自然连接的区别。</p>
-<ul>
-<li>自然连接是一种特殊的等值连接。他要求两个关系中进行比较的分量必须是同名的属性组，并且在结果中把重复的属性列去掉。</li>
-</ul>
+<h1 id="ch2-指令系统"><a class="header" href="#ch2-指令系统">CH2 指令系统</a></h1>
+<p>掌握：
+指令系统的优化设计的两个截然相反的方向；</p>
+<p>RISC 的基本原则和快的实质（简答、选择）；</p>
+<p>RISC 采用的基本技术（简答、选择）；</p>
+<p>重叠寄存器窗口（选择）</p>
 
                     </main>
 

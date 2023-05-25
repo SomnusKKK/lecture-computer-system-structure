@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html" class="active"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li><li class="chapter-item expanded "><a href="CH7.html"><strong aria-hidden="true">7.</strong> CH7 数据库设计</a></li><li class="chapter-item expanded "><a href="CH8.html"><strong aria-hidden="true">8.</strong> CH8 数据库编程</a></li><li class="chapter-item expanded "><a href="CH10.html"><strong aria-hidden="true">9.</strong> CH10 数据库恢复技术</a></li><li class="chapter-item expanded "><a href="CH11.html"><strong aria-hidden="true">10.</strong> CH11 并发控制</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html" class="active"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,79 +143,14 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="ch4-数据库安全性"><a class="header" href="#ch4-数据库安全性">CH4 数据库安全性</a></h1>
-<p>三类安全问题：</p>
-<ul>
-<li>技术安全类</li>
-<li>管理安全类</li>
-<li>政策法律类</li>
-</ul>
-<p>安全性措施的五个层次：</p>
-<ul>
-<li>物理层</li>
-<li>人员层</li>
-<li>操作系统层</li>
-<li>网络层</li>
-<li>数据库系统层</li>
-</ul>
-<p>数据库安全性控制：</p>
-<ul>
-<li>安全性控制是数据库管理员的任务</li>
-<li>两类安全功能
-<ul>
-<li>用户管理</li>
-<li>数据库操作权限管理</li>
-</ul>
-</li>
-<li>安全系统的核心问题：身份识别（用户名+口令）</li>
-<li>四个概念
-<ul>
-<li>用户</li>
-<li>权限</li>
-<li>用户组：有相同级别和操作权限的一组用户</li>
-<li>角色：数据库角色是被命名的一组预定义的与数据库操作相关的权限，角色是权限的集合。</li>
-</ul>
-</li>
-</ul>
-<p>安全级别（自高向低）：A1 B3 B2 B1 C2 C1 D</p>
-<p>达到 C1、C2 安全级别的 DBMS 提供了哪些安全保护措施？</p>
-<ul>
-<li>C1：该级只提供了非常初级的自主安全保护，能够实现对用户和数据的分离，进行<strong>自主存取控制（DAC）</strong>，保护或限制用户权限的传播。</li>
-<li>C2：该级实际上是<strong>安全产品的最低档</strong>，提供受控的存取保护，即将 C1 级的 DAC 进一步细化，以个人身份注册负责，并实施审计和资源隔离（<strong>审计的最低级别</strong>）。</li>
-<li>从B1开始是<strong>真正意义上的安全产品</strong></li>
-</ul>
-<p>两种存取控制方式的描述；</p>
-<ul>
-<li>C1级：自主存取控制就是由用户（如数据库管理员）自主控制对数据库对象的操作权限，哪些用户可以对哪些对象、进行哪些操作，完全取决于用户之间的授权。任何用户只要需要，就有可能获得对任何对象的操作权限。这种存取控制方式非常灵活，但有时也容易失控。目前大多数数据库管理系统都支持自主存取控制方式。</li>
-<li>B1级：强制存取控制的思路是，为每一个数据库对象标以一定的密级（Classification level），对每一个用户都确定一个许可级别（Clearance level）。如密级可以分为绝密、机密、保密、秘密、公开等若干级别；而用户可以划分为一级用户（可以操作所有数据）、二级用户（可以操作除绝密以外的所有数据）、三级用户等。</li>
-</ul>
-<p>授权语句GRANT语句中的WITH GRANT OPTION ；</p>
-<pre><code class="language-SQL">Grant &lt;权限&gt;        //ALL PRIVILEGES 全部权限
-on Table &lt;表名&gt; 
-to &lt;用户&gt;           //PUBLIC 所有用户
-[WITH GRANT OPTION];//获得权限的用户可授权其他用户
-</code></pre>
-<p>收回权限语句REVOKE：</p>
-<pre><code class="language-SQL">REVOKE &lt;权限&gt;        //ALL PRIVILEGES 全部权限
-on Table &lt;表名&gt; 
-FROM &lt;用户&gt;           //PUBLIC 所有用户
-[CASCADE（级连，授权出去的全部撤销）| RESTRICT];
-</code></pre>
-<p>数据加密的两种方法：</p>
-<ul>
-<li>替换方法</li>
-<li>置换方法：重新排序</li>
-</ul>
-<p>数据加密的两种算法：</p>
-<ul>
-<li>DES（数据加密标准）：替换+置换，对称密钥</li>
-<li>RSA（公开密钥加密机制）：非对称密钥</li>
-</ul>
-<p>SQL的三种身份验证模式或安全管理模式：</p>
-<ul>
-<li>标准模式（SQL控制）</li>
-<li>集成模式（Windows控制）</li>
-<li>混合模式（SQL+Windows）</li>
-</ul>
+<p>第四章 向量处理机
+掌握：向量流水线的处理方式（选择、填空）；向量处理机并行操作条件（选
+择、填空）及采用链接技术的条件（选择）；阵列处理机的定义（选择）；构成（选
+择）；IlliacIV 阵列处理机结构特点（选择、填空）；互连网络的设计目标（选择、
+简答）；应抉择的几个问题（选择、填空）；操作方式（选择、填空）；单级互连
+网络及其函数（计算、选择）；多级互连网络的几个关键技术（选择、填空）；交
+换开关分类、控制方式（选择、填空）；STARAN 交换网络的交换函数和互连函
+数、控制信号（计算、分析）；并行存储器的无冲突访问（选择、填空）</p>
 
                     </main>
 
