@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CH5 数据库完整性 - 笔记</title>
+        <title>CH5 多处理机 - 笔记</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html" class="active"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 计算机系统结构导论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 指令系统</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 标量处理机</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 向量处理机</a></li><li class="chapter-item expanded "><a href="CH5.html" class="active"><strong aria-hidden="true">5.</strong> CH5 多处理机</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 数据流机</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,14 +142,269 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="ch5-数据库完整性数据库的一致性ic业务规则动态"><a class="header" href="#ch5-数据库完整性数据库的一致性ic业务规则动态">CH5 数据库完整性//数据库的一致性：IC+业务规则（动态）</a></h1>
-<p>第五章 多处理机
-掌握：多处理机耦合度（填空）；多处理机定义以及硬件结构；机间互连形式
-及采用算法（选择、填空）；多处理机的存储器组织中两种编址方式及其适应场
-合（简答、选择）；多处理机的 cache 一致性问题（选择、填空）；表达式的树
-形流程图（会画图并计算）；程序并行性分析（选择、填空）；FORK、JOIN 语
-句（选择）；多处理机上并行执行的程序及时间资源图（设计程序并画图）；多处
-理机的操作系统分类（选择、填空）；</p>
+<h1 id="ch5-多处理机"><a class="header" href="#ch5-多处理机">CH5 多处理机</a></h1>
+<p><strong>多处理机耦合度（填空）；</strong></p>
+<ul>
+<li>紧耦合多处理机
+<ul>
+<li><img src="pic/5-1.bmp" alt="" /></li>
+<li>特点：通过共享主存实现机间通讯。</li>
+<li>互连网络：实现PE←→PEM、PE←→I/O通道、PE←→中断信号间的连接。</li>
+<li>系统属性：
+<ul>
+<li>同构/异构--PE类型相同/不同；</li>
+<li>对称/非对称--每个PE与部分/全部的I/O通道连接。</li>
+</ul>
+</li>
+<li>常见结构：同构对称式和异构非对称式多机系统。</li>
+<li>限制：PE数量不能很多。为什么？
+<ul>
+<li>主存带宽、IN带宽、同步开销限制了PE的数量。</li>
+</ul>
+</li>
+<li>访存冲突解决方案：
+<ul>
+<li>采取多体交叉访问方式，增加PEM数量；</li>
+<li>每个PE自带小容量局部存储器，存放核心代码、OS 表格等，减少 PE 访存次数；</li>
+<li>每个 PE 自带一个 Cache，减少 PE 访存次数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>松耦合多处理机
+<ul>
+<li><img src="pic/5-2.bmp" alt="" /></li>
+<li>每台处理机都有一个容量较大的局部存储器；不同处理机间可通过通道互连或 MTS 实现通信。</li>
+<li>松耦合多处理机较适合做粗粒度的并行计算。作业可被分为若干个相对独立的任务，任务间信息流量较少，则可在多个处理机上并行执行，即松耦合度的多处理机系统有效。</li>
+<li>特点：通过消息传送系统实现机间通讯；每个模块是一个独立的处理机，整个系统可看成是一个分布系统。</li>
+<li>互连网络：MTS有总线、环形、多级网络等种类；</li>
+<li>结构：有层次和非层次两种结构</li>
+</ul>
+</li>
+</ul>
+<p><strong>多处理机定义以及硬件结构；（硬件结构没找到）</strong></p>
+<ul>
+<li>定义：多处理机系统机是指有两台以上的处理机，共享I/O子系统，机间经共享主存或高速通信网络通信，在操作系统控制下，协同求解大而复杂问题的计算机系统。</li>
+<li>硬件结构：
+<ul>
+<li>紧耦合与松耦合</li>
+<li>机间互连形式
+<ul>
+<li>总线形式</li>
+<li>环形互连形式</li>
+<li>交叉开关形式</li>
+</ul>
+</li>
+<li>存储器的组织
+<ul>
+<li>低位交叉</li>
+<li>高位交叉</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>机间互连形式及采用算法（选择、填空）；</strong></p>
+<ul>
+<li>总线形式 （时间分配）
+<ul>
+<li>PE、PEM、I/O通道均连在总线上，采用分时或多路转换技术实现数据传递，是最简单的连接方式。</li>
+<li>总线仲裁算法：静态优先级算法、平等算法、动态优先级算法、先来先服务算法等。</li>
+<li>对外设一般采用优先级算法；对PE采用均等算法。</li>
+<li>实现方法：
+<ul>
+<li>集中式：由总线控制器控制；</li>
+<li>分布式：中机构分散到各PE中。</li>
+</ul>
+</li>
+<li>提高总线效率方法：改善传输介质和增加总线数量。</li>
+<li>总线互连方式不适宜连接过多的处理机。</li>
+</ul>
+</li>
+<li>环形互连形式
+<ul>
+<li>为保持总线式互连的优点，同时又能克服其不足，可以考虑构造一种逻辑总线，让各台处理机之间点点相连成环状，称环形互连，</li>
+</ul>
+</li>
+<li>交叉开关形式 （空间分配）
+<ul>
+<li>是总线形式的极端，总线数=PE数+PEM数+I/O通道数，是一种全相联形式，控制、仲裁、转换机构均在开关中。</li>
+<li>改进：用一系列较小开关串联或并联，形成多级交叉开关，减少其复杂性。交叉开关方式不适宜连接过多的处理机。</li>
+</ul>
+</li>
+<li>多端口存储器形式
+<ul>
+<li>将控制、仲裁、转换机构移到存储器中。</li>
+<li>每个端口与一个PE或I/O通道相连。</li>
+<li>多端口存储器形式不适宜连接过多的处理机</li>
+</ul>
+</li>
+</ul>
+<p><strong>多处理机的存储器组织中两种编址方式及其适应场合（简答、选择）；</strong></p>
+<ul>
+<li>由 m 个存储器模块构成的并行存储器，存储单元的地址是按交叉方式编址的。这种地址交叉编址的方式主要有低位交叉和高位交叉两种。
+<ul>
+<li>低位交叉编址：块内顺序物理地址不连续，距离为 m。（即低位不变）
+<ul>
+<li><img src="pic/5-3.bmp" alt="" /></li>
+<li>低位交叉编址方式下，连续物理地址空间的数据被分散到各个分存储体中；</li>
+<li>适用于当前执行的多个进程基本不共享数据的情况，空间中的数据，如流水线、向量或阵列处理机</li>
+</ul>
+</li>
+<li>高位交叉编址：块内顺序物理地址连续，总体也依次连续分布（即高位不变）
+<ul>
+<li><img src="pic/5-4.bmp" alt="" /></li>
+<li>适用于当前执行进程是共享同一集中连续物理地址，可将存储模块中的一定数量的页面分配给某进程</li>
+<li>将放置处理机 i 执行进程要用到的绝大多数页面的那个存储器模块 i 称为是处理机 i 的本地存储器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>多处理机的 cache 一致性问题（选择、填空）；</strong></p>
+<ul>
+<li>共享可写数据引起不一致性</li>
+<li>进程迁移引起数据不一致性</li>
+<li>I/O 传输造成的数据不一致性</li>
+<li>如果一个存储器满足以下 3 点，则称该存储器是一致的。
+<ul>
+<li>处理器 P 对单元 X 进行一次写之后又对单元 X 进行读，读和写之间没有其他处理器对单元 X 进行写，则 P 读到的值总是前面写进去的值。</li>
+<li>处理器 P 对单元 X 进行写之后，另一处理器 Q 对单元 X 进行读，读和写之间没有其他写，则 Q 读到的值应该是 P 写进去的值。</li>
+<li>对同一单元的写是顺序化的，即任意两个处理器对同一单元的两次写，从各个处理器的角度看顺序都是相同的。</li>
+</ul>
+</li>
+<li>解决的方法
+<ul>
+<li>解决进程迁移引起的 Cache 不一致性
+<ul>
+<li>禁止迁移</li>
+<li>触发写回主存
+<ul>
+<li>进程挂起时，将该进程改写过的块写回主存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以硬件为基础实现多 Cache 一致性（关键：跟踪记录共享数据块的状态）
+<ul>
+<li>监视/监听法（Snoopying）
+<ul>
+<li>适用结构：总线型互连的多处理机</li>
+<li>基本思想：利用总线播送更改主存的情况，各个Cache控制器通过监听总线来判断它们是否有总线上请求的数据块。</li>
+<li>实现方式：
+<ul>
+<li>写作废协议
+<ul>
+<li>当一个处理器对某数据项进行写入时，通过广播使其他Cache中所有对应该数据项的副本作废。</li>
+</ul>
+</li>
+<li>写更新协议
+<ul>
+<li>当一个处理器对某数据项进行写入时，通过广播使其他Cache中所有对应于该数据项的副本进行更新。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>目录表法（Directory）
+<ul>
+<li>目录：一种专用的数据结构，用于记录可以进入 Cache 的每个数据块的状态、哪些处理器有该块的副本以及是否修改过等信息。</li>
+<li>适用结构：非总线型互连的多处理机</li>
+<li>基本思想：根据目录表，一个处理机在写入自身 Cache 的同时，只需有选择地通知其他存有此数据块的 Cache 将副本作废或更新。
+<ul>
+<li>全映像目录表</li>
+<li>有限目录表法</li>
+<li>链式目录表法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以软件为基础实现多 Cache 一致性
+<ul>
+<li>基本思想：不允许要共享的可写数据进入 Cache
+<ul>
+<li>任意时刻均不允许共享的可写数据进入 Cache，只留在主存中</li>
+<li>通过编译分析后，只在实际有写入操作会影响一致性的时间内不允许进入主存</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>表达式的树形流程图（会画图并计算）；</strong></p>
+<ul>
+<li><img src="pic/5-5.bmp" alt="" /></li>
+</ul>
+<p><strong>程序并行性分析（选择、填空）；</strong></p>
+<ul>
+<li>多处理机系统中，程序段并行必然是“异步流动”。</li>
+<li>数据相关
+<ul>
+<li>如果Pi的左部变量在Pj的右部变量集内，且 Pj 必须取出 Pi 运算的结果来作为操作数，就称 Pj “数据相关”于 Pi。</li>
+<li>如：Pi:A=B+D, Pj:C=A*E</li>
+<li>当 Pi 和 Pj 服从交换律时，虽不能并行执行，但可以交换串行 Pi：A=2*A，Pj:A=3*A</li>
+</ul>
+</li>
+<li>数据反相关
+<ul>
+<li>如果Pj的左部变量在Pi的右部变量集内，且当Pi未取用其变量的值之前，是不允被Pj所改变的，就称Pi“数据反相关”于Pj 。</li>
+<li>如：Pi:C=A+E, Pj:A=B+D</li>
+</ul>
+</li>
+<li>
+<h2 id="数据输出相关"><a class="header" href="#数据输出相关">数据输出相关</a></h2>
+</li>
+<li>其他相关
+<ul>
+<li>若两个程序段的输入变量互为输出变量，同时具有“先写后读”和“先读后写”两种相关，以交换数据为目的，则两者必须并行执行，既不能顺序串行， 也不能交换串行。</li>
+<li>如：Pi: A=B, Pj: B=A</li>
+<li>并行执行，且必须保证读、写完全同步。</li>
+</ul>
+</li>
+</ul>
+<p><strong>FORK、JOIN 语句（选择）；</strong></p>
+<ul>
+<li>Fork m
+<ul>
+<li>派生：在一个任务执行的同时，产生出一个或多个与它并行的任务，分配给不同的、正在等待的处理机完成。</li>
+</ul>
+</li>
+<li>Join N
+<ul>
+<li>汇合：把分散在各处理机执行的任务，全部完成后，再汇合起来，进入后续任务。</li>
+</ul>
+</li>
+</ul>
+<p><strong>多处理机上并行执行的程序及时间资源图（设计程序并画图）；</strong></p>
+<ul>
+<li><img src="pic/5-6.bmp" alt="" /></li>
+<li><img src="pic/5-7.bmp" alt="" /></li>
+<li><img src="pic/5-8.bmp" alt="" /></li>
+<li>GOTO 在时间资源图上一定要有表示！！！</li>
+</ul>
+<p><strong>多处理机的操作系统分类（选择、填空）；</strong></p>
+<ul>
+<li>主从型操作系统
+<ul>
+<li>有一台主处理机上运行操作系统，其他的处理机为从处理机，由主处理机管理从处理机的进程和分配任务。</li>
+<li>一台从处理机在执行进程的过程中需要得到管理程序提供服务时，必须向主处理机发生申请，等待主处理机响应后对它提供服务。</li>
+</ul>
+</li>
+<li>各自独立型操作系统
+<ul>
+<li>每台处理机都有一个独立的管理程序（操作系统的内核）在运行，即每个处理机都有一个内核的副本，执行各种管理功能。</li>
+</ul>
+</li>
+<li>浮动管理控制方式
+<ul>
+<li>浮动型操作系统是界于主从型和单独型之间的一种折衷方式，其管理程序可以在处理机之间浮动。担任“主控制处理机” 的设备不固定、担任的时间不固定。</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
