@@ -1,0 +1,3 @@
+[submodule "book/Joky02.github.io"]
+	path = book/html/Joky02.github.io
+	url = https://github.com/Joky02/Joky02.github.io.git
