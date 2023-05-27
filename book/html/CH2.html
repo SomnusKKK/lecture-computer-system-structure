@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CH2 关系数据库/关系数据模型理论 - 笔记</title>
+        <title>CH2 指令系统 - 笔记</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html" class="active"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 计算机系统结构导论</a></li><li class="chapter-item expanded "><a href="CH2.html" class="active"><strong aria-hidden="true">2.</strong> CH2 指令系统</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 标量处理机</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 向量处理机</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 多处理机</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 数据流机</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,10 +144,54 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="ch2-指令系统"><a class="header" href="#ch2-指令系统">CH2 指令系统</a></h1>
 <p>掌握：
-指令系统的优化设计的两个截然相反的方向；</p>
-<p>RISC 的基本原则和快的实质（简答、选择）；</p>
+<strong>指令系统的优化设计的两个截然相反的方向；</strong></p>
+<ul>
+<li>CISC 复杂指令系统 （硬件实现多）</li>
+<li>RISC 精简指令系统</li>
+</ul>
+<p><strong>RISC 的基本原则和快的实质（简答、选择）；</strong></p>
+<ul>
+<li>基本原则
+<ul>
+<li>选择使用频度较高、最有用，及实现简单的指令；</li>
+<li>每条指令都在一个机器周期内完成的指令；</li>
+<li>减少指令寻址方式的种类，简化指令格式，使指
+令的长度相同；</li>
+<li>增加通用寄存器的数量，减少访问存储器操作；</li>
+<li>大量采用硬联控制，提高执行速度</li>
+<li>通过优化和精简指令设计支持的编译程序，能有
+效地为高级语言生成机器语言程序。</li>
+</ul>
+</li>
+<li>快的实质
+<ul>
+<li>（关键）CPI，RISC比CISC少2-10倍</li>
+<li>通常情况下，RISC的时钟周期短于CISC</li>
+</ul>
+</li>
+</ul>
 <p>RISC 采用的基本技术（简答、选择）；</p>
-<p>重叠寄存器窗口（选择）</p>
+<ul>
+<li>遵循按RISC机器一般原则设计的技术。</li>
+<li>在逻辑上采用硬联实现和微程序固件实现相结合
+的技术。大多数简单指令用硬连线方式实现，功能较复杂的
+指令用微程序解释实现。</li>
+<li>在CPU中设置数量较大的寄存器组， 并采用重叠
+寄存器窗口的技术。</li>
+</ul>
+<p>重叠寄存器窗口（选择）
+<img src="../pic/2-1.png" alt="" />
+<img src="../pic/2-2.png" alt="" /></p>
+<ul>
+<li>效果：大量减少了原先由于程序调用引起的访存的
+次数</li>
+<li>在主存中开辟堆栈，当调用的进程数（层数）超过
+规定层数时（寄存器溢出），则将溢出的部分压入堆
+栈中</li>
+<li>SUN公司的SPARC、SuperSPARC等处理机，将
+最后一个过程与第一个过程的公用存储器重叠起来，
+从而形成一个循环圈</li>
+</ul>
 
                     </main>
 

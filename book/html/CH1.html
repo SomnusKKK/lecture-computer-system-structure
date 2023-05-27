@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CH1 绪论 - 笔记</title>
+        <title>CH1 计算机系统结构导论 - 笔记</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html" class="active"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html" class="active"><strong aria-hidden="true">1.</strong> CH1 计算机系统结构导论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 指令系统</a></li><li class="chapter-item expanded "><a href="CH3.html"><strong aria-hidden="true">3.</strong> CH3 标量处理机</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 向量处理机</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 多处理机</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 数据流机</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,23 +143,220 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="ch1-计算机系统结构导论"><a class="header" href="#ch1-计算机系统结构导论">CH1 计算机系统结构导论</a></h1>
-<p>计算机系统结构、计算机组成、计算机实现所包含的内容（选择）；</p>
-<p>计算机系统设计思路（填空、选择）；</p>
-<p>系列机和兼容机的概念（选择、填空）；</p>
-<p>计算机系统设计步骤（选择、填空）；</p>
-<p>计算机的层次结构（选择）；</p>
-<p>计算机系统结构的定义（实质）（选择）；</p>
-<p>计算机系统结构、计算机组成、计算机实现三者之间的区别和联系（简答、选择）；</p>
-<p>软、硬件取舍原则（简答、选择）；</p>
-<p>解决软件可移植性的方法（选择、填空）；</p>
-<p>透明性的定义和判断（选择）；</p>
-<p>CPU 性能公式；</p>
-<p>Amdahl 定律（计算）；</p>
-<p>三大定量分析原理（填空、简答）；</p>
-<p>并行性的概念和分类（简答、选择、填空）；</p>
-<p>Flynn 分类（选择、填空）；</p>
-<p>系统结构中开发并行性的途径（填空、选择、简答）</p>
-<p>耦合度（填空、选择）</p>
+<p>翻译：先用转换程序将高一级机器级上的程序整个地变换成低一级机器级上等效的程序，然后再在低一级机器级上实现的技术。</p>
+<p>解释：在低级机器级上用它的一串语句或指令来仿真高级机器级上的一条语句或指令的功能，是通过对高级的机器级语言程序中的每条语句或指令逐条解释来实现的技术。</p>
+<p><strong>计算机系统结构、计算机组成、计算机实现所包含的内容（选择）；</strong></p>
+<ul>
+<li>计算机系统结构包含：
+<ul>
+<li>数据表示
+<ul>
+<li>硬件能直接识别和处理的数据类型、格式</li>
+</ul>
+</li>
+<li>寻址方式
+<ul>
+<li>最小寻址单位，寻址方式的种类，地址的计算</li>
+</ul>
+</li>
+<li>寄存器组织
+<ul>
+<li>数据寄存器、变址、控制寄存器、专用寄存器等数量，使用方法</li>
+</ul>
+</li>
+<li>指令系统
+<ul>
+<li>指令的格式、类型，使用方法</li>
+</ul>
+</li>
+<li>存储系统
+<ul>
+<li>最小编址单位，编址方式，存储容量，最大存储空间</li>
+</ul>
+</li>
+<li>中断系统
+<ul>
+<li>中断类型，优先级别，入口地址的形成</li>
+</ul>
+</li>
+<li>I/O 接口的结构
+<ul>
+<li>I/O 的连接方式、访问方式、编址方式</li>
+</ul>
+</li>
+<li>信息的保护
+<ul>
+<li>保护方式，硬件对信息的保护和支持</li>
+</ul>
+</li>
+<li>机器工作状态、定义和切换</li>
+</ul>
+</li>
+<li>计算机组成包含：
+<ul>
+<li>数据通路宽度</li>
+<li>专用部件的设置</li>
+<li>各种操作对部件的共享程度</li>
+<li>功能部件的并行度</li>
+<li>控制机构的组成方式</li>
+<li>缓冲和排队技术</li>
+<li>可靠性技术</li>
+</ul>
+</li>
+<li>计算机实现包含：
+<ul>
+<li>处理机、主存、I/O 接口等部件的物理结构</li>
+<li>器件的集成度和速度的选择</li>
+<li>器件、模块、插件、底板的划分与连接</li>
+<li>专用器件的设计</li>
+<li>组装技术</li>
+<li>信号传输</li>
+<li>电源、冷却、整机的装配等</li>
+</ul>
+</li>
+</ul>
+<p><strong>计算机系统设计思路（填空、选择）；</strong></p>
+<ul>
+<li>由上往下</li>
+<li>由下往上</li>
+<li>由中间开始</li>
+</ul>
+<p><strong>系列机和兼容机的概念（选择、填空）；</strong></p>
+<ul>
+<li>系列机：同一厂家生产的具有相同计算机结构，但具有不同组成和实现的一系列不同档次不同型号的机器；</li>
+<li>兼容机：不同厂家生产的具有相同计算机结构的计算机。</li>
+</ul>
+<p><strong>计算机系统设计步骤（选择、填空）；</strong></p>
+<p>设计任务：分配软、硬件的功能，确定机器级的界面，并对该界面进行具体确切的定义。</p>
+<p>设计步骤：</p>
+<ul>
+<li>需求分析</li>
+<li>需求说明</li>
+<li>概念性设计</li>
+<li>具体设计</li>
+<li>反复进行优化设计及评价</li>
+</ul>
+<p><strong>计算机的层次结构（选择）；</strong>
+<img src="../pic/1-1.bmp" alt="" />
+<img src="../pic/1-2.bmp" alt="" /></p>
+<p><strong>计算机系统结构的定义（实质）（选择）；</strong></p>
+<ul>
+<li>系统结构就是要研究对于某级，哪些属性应该透明，哪些属性不应该透明。更本质地说，系统结构就是某一语言程序员在对应的机器级上能够编写正确运行的程序所必须了解的所有计算机属性的集合。</li>
+<li>计算机系统结构的实质是完成硬件、软件的功能分配, 对计算机的机器级界面的确定。
+<ul>
+<li>界面之上，是软件实现的功能；界面之下是硬件和固件实现的功能。</li>
+</ul>
+</li>
+</ul>
+<p><strong>计算机系统结构、计算机组成、计算机实现三者之间的区别和联系（简答、选择）；</strong></p>
+<ul>
+<li>计算机系统结构----系统设计（对计算机系统中各机器级之间界面的划分和定义，以及对各级界面上、下的功能进行分配）
+计算机组成----逻辑设计（计算机系统结构的逻辑设计）
+计算机实现----物理设计（计算机组成的物理实现）</li>
+<li>相同系统结构的计算机可以采用不同的组成；相同组成的计算机可以采用不同的实现技术。</li>
+<li>组成设计向上决定于结构，向下受限于实现技术
+<ul>
+<li>结构不同，采用的组成技术不同；</li>
+<li>组成技术的进步推动结构的发展；</li>
+<li>实现技术的发展使得三者的关系更加紧密</li>
+</ul>
+</li>
+</ul>
+<p><strong>软、硬件取舍原则（简答、选择）；</strong></p>
+<ul>
+<li>要有高的性能价格比（只有对产量大的计算机系统，增大硬件功能实现的比例才是适宜的）</li>
+<li>考虑到准备采用和可能采用的组成技术，使它尽可能不要过多或不合理地限制各种组成、实现技术的采用</li>
+<li>以下四点不重要：
+<ul>
+<li>考虑用户的应用领域：专用—硬件</li>
+<li>设计周期长的硬件不宜采用</li>
+<li>常用的功能尽量采用硬件实现</li>
+<li>尽量采用新技术实现超前设计</li>
+</ul>
+</li>
+</ul>
+<p><strong>解决软件可移植性的方法（选择、填空）；</strong></p>
+<p>是指软件不用修改或只需经少量加工就能由一台机器搬到另一台机器上运行，使得同一套软件可以应用于不同的硬件环境。</p>
+<p>几个基本技术：</p>
+<ul>
+<li>统一高级语言</li>
+<li>采用系列机思想</li>
+<li>模拟与仿真</li>
+</ul>
+<p><strong>透明性的定义和判断（选择）；</strong></p>
+<p>在计算机中，客观存在的事物或属性从某个角度看不到，称这些事物或属性对它是透明的。</p>
+<p><strong>CPU 性能公式；</strong> </p>
+<p>取决于3个因素：</p>
+<ul>
+<li>程序执行的总执行条数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></li>
+<li>平均每条指令的时钟周期数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></li>
+<li>主时钟频率 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+<p>CPU的程序执行时间 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal mtight" style="margin-right:0.10903em;">U</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为第 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 种指令的时钟周期数， <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为第 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 种指令在程序中出现的次数</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.104em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></p>
+<p><strong>Amdahl 定律（计算）；</strong></p>
+<p>性能可改进比 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ：系统性能可改进部分占用的时间与未改进时系统总执行时间的比值</p>
+<p>部件加速比 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ：系统性能可改进部分再改进后性能提高的比值</p>
+<p>系统加速比 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3393em;vertical-align:-0.4451em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8942em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.1389em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4159em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.1389em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4451em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3651em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.1076em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.1076em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mord mtight">/</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0278em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><strong>三大定量分析原理（填空、简答）；</strong></p>
+<ul>
+<li>哈夫曼压缩原理：尽可能加速高概率事件远比加速处理概率很低的事件对性能提高要显著</li>
+<li>Amdahl定律：使经常性事件的处理速度加快能明显提高整个系统的性能</li>
+<li>程序访问的局部性定律：存储器体系的构成就是以访问的局部性原理为基础的</li>
+</ul>
+<p>时间局部性：程序中近期被访问的信息项很可能马上将被再次访问</p>
+<p>空间局部性：指那些在访问地址上相邻近的信息项很可能会被一起访问</p>
+<p><strong>并行性的概念和分类（简答、选择、填空）；</strong></p>
+<ul>
+<li>只要在同一时刻或是在同一时间间隔内完成两种或两种以上性质相同或不同的工作，它们在时间上能互相重叠。
+<ul>
+<li>同时性：两个或多个事件在同一时刻发生。</li>
+<li>并发性：两个或多个事件在同一时间间隔内发生。</li>
+</ul>
+</li>
+<li>从计算机系统执行程序角度来看，从低到高分为：
+<ul>
+<li>指令内部—微操作之间—硬件和组成技术</li>
+<li>指令之间—多条指令并行执行—相关问题</li>
+<li>任务或进程之间—任务或程序段—任务分解</li>
+<li>作业或程序之间—作业或多道程序—并行算法</li>
+</ul>
+</li>
+<li>从处理数据的角度来看，从低到高分为：
+<ul>
+<li>位串字串</li>
+<li>位并字串</li>
+<li>位片串字并</li>
+<li>全并行</li>
+</ul>
+</li>
+<li>从计算机信息加工的各个步骤和阶段来看：
+<ul>
+<li>存储器操作并行</li>
+<li>处理机操作步骤并行</li>
+<li>处理器操作并行</li>
+<li>指令、任务、作业并行</li>
+</ul>
+</li>
+</ul>
+<p><strong>Flynn 分类（选择、填空）；</strong></p>
+<ul>
+<li>指令流是指机器执行的指令序列。</li>
+<li>数据流是指由指令流调用的数据序列。</li>
+<li>SISD：单指令流单数据流</li>
+<li>SIMD：单指令流多数据流</li>
+<li>MISD：多指令流单数据流</li>
+<li>MIMD：多指令流多数据流</li>
+</ul>
+<p><strong>系统结构中开发并行性的途径（填空、选择、简答）</strong></p>
+<ul>
+<li>时间重叠：流水线计算机</li>
+<li>资源重复：阵列处理机</li>
+<li>资源共享：多处理机系统</li>
+</ul>
+<p><strong>耦合度（填空、选择）</strong></p>
+<p>反映多机系统中各机器之间物理连接的紧密程度和交叉作用能力的强弱</p>
 
                     </main>
 

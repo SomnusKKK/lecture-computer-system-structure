@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CH3 SQL - 笔记</title>
+        <title>CH3 标量处理机 - 笔记</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 绪论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 关系数据库/关系数据模型理论</a></li><li class="chapter-item expanded "><a href="CH3.html" class="active"><strong aria-hidden="true">3.</strong> CH3 SQL</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 数据库安全性</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 数据库完整性</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 关系数据理论</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="CH1.html"><strong aria-hidden="true">1.</strong> CH1 计算机系统结构导论</a></li><li class="chapter-item expanded "><a href="CH2.html"><strong aria-hidden="true">2.</strong> CH2 指令系统</a></li><li class="chapter-item expanded "><a href="CH3.html" class="active"><strong aria-hidden="true">3.</strong> CH3 标量处理机</a></li><li class="chapter-item expanded "><a href="CH4.html"><strong aria-hidden="true">4.</strong> CH4 向量处理机</a></li><li class="chapter-item expanded "><a href="CH5.html"><strong aria-hidden="true">5.</strong> CH5 多处理机</a></li><li class="chapter-item expanded "><a href="CH6.html"><strong aria-hidden="true">6.</strong> CH6 数据流机</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,8 +143,49 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="ch3-标量处理机"><a class="header" href="#ch3-标量处理机">CH3 标量处理机</a></h1>
-<p>重叠和顺序解释的异同（简答、选择）；</p>
-<p>重叠和流水概念及工作原理（选择）；一次重叠、二次重叠的概念（选择）；重叠对组成的要求（简答、选择）；重叠相关的两种解决方案并就其原因用系统设计原理作出解释（选择、填空、简答）；几种相关的判断及解决方法（选择、填空）；流水线分类（选择、填空）；流水线特点（选择）；解决影响流水线瓶颈的方法（选择、填空）；流水线性能分析（会画时空图及计算）；流水线的相关处理（选择、填空）、异步流动流水线和同步流水线及可能出现的相关（选择、填空）；单功能非线性流水线的调度</p>
+<p><strong>重叠和顺序解释的异同（简答、选择）；</strong></p>
+<ul>
+<li>顺序解释
+<ul>
+<li>各条机器指令之间顺序串行地执行，执行完一条指令后采取出下条指令来执行，而且每条指令内部的各个微操作也是顺序串行地执行。</li>
+<li>特点
+<ul>
+<li>控制简单</li>
+<li>速度慢、各部件利用率低</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>重叠解释
+<ul>
+<li>在解释第k条指令的操作完成之前，就可开始解释第k+1条指令</li>
+</ul>
+</li>
+<li>相同：每一条指令的实现速度相同</li>
+<li>不同：重叠解释能加快相邻两条以至一段程序的解释</li>
+</ul>
+<p><strong>重叠和流水概念及工作原理（选择）；</strong></p>
+<p><strong>一次重叠、二次重叠的概念（选择）；</strong></p>
+<ul>
+<li>一次重叠：在任何时刻，指令分析部件和指令执行部件止只有相邻两条指令在重叠解释的方式。</li>
+<li>二次重叠：同时解释3条指令 </li>
+</ul>
+<p><strong>重叠对组成的要求（简答、选择）；</strong></p>
+<ul>
+<li>解决可能存在的访存冲突
+<ul>
+<li>原因：一般的机器上，操作数和指令混存于同一主存内，取指需要访主存，分析中取操作数也可能访主存。而一次只能访问一个主存单元。</li>
+</ul>
+</li>
+</ul>
+<p>重叠相关的两种解决方案并就其原因用系统设计原理作出解释（选择、填空、简答）；</p>
+<p>几种相关的判断及解决方法（选择、填空）；</p>
+<p>流水线分类（选择、填空）；</p>
+<p>流水线特点（选择）；</p>
+<p>解决影响流水线瓶颈的方法（选择、填空）；</p>
+<p>流水线性能分析（会画时空图及计算）；</p>
+<p>流水线的相关处理（选择、填空）、异步流动流水线和同步流水线及可能出现的相关（选择、填空）；</p>
+<p>单功能非线性流水线的调度</p>
 
                     </main>
 
