@@ -850,18 +850,10 @@
 </ul>
 <p><strong>互连网络的设计目标（选择、简答）；</strong></p>
 <ul>
-<li>
-<p>结构不要复杂，降低成本；（低成本）</p>
-</li>
-<li>
-<p>互连灵活，满足算法和应用的需要；（高灵活性）</p>
-</li>
-<li>
-<p>处理单元间信息交换所需最大传送步数要尽量少，提高速度；（高连接度，低延迟）</p>
-</li>
-<li>
-<p>互连网络采用规整单一的基本构件组成；模块化，可扩充性。（适合VLSI （超大规模集成电路））</p>
-</li>
+<li>结构不要复杂，降低成本；（低成本）</li>
+<li>互连灵活，满足算法和应用的需要；（高灵活性）</li>
+<li>处理单元间信息交换所需最大传送步数要尽量少，提高速度；（高连接度，低延迟）</li>
+<li>互连网络采用规整单一的基本构件组成；模块化，可扩充性。（适合VLSI （超大规模集成电路））</li>
 </ul>
 <p><strong>应抉择的几个问题（选择、填空）；</strong></p>
 <ul>
@@ -921,18 +913,22 @@
 <li>对交换开关的不同控制方式</li>
 </ul>
 <p><strong>交换开关分类、控制方式（选择、填空）；</strong></p>
-<p>4种开关状态或连接方式：</p>
+<ul>
+<li>4种开关状态或连接方式：
 <ul>
 <li>直连</li>
 <li>交换</li>
 <li>上播</li>
 <li>下播</li>
 </ul>
-<p>3种控制方式：</p>
+</li>
+<li>3种控制方式：
 <ul>
 <li>级控制 ——STARAN交换网</li>
 <li>单元控制 ——多级混洗交换网络</li>
 <li>部分级控制 ——STARAN移数网</li>
+</ul>
+</li>
 </ul>
 <p><strong>STARAN 交换网络的交换函数和互连函数、控制信号（计算、分析）；</strong></p>
 <ul>
@@ -942,7 +938,9 @@
 <li><img src="pic/4-2.jpg" alt="4-2" /></li>
 </ul>
 <p><strong>STARAN 移数网络的控制方式（填空 、选择）；</strong></p>
-<p>控制方式：部分级控制</p>
+<ul>
+<li>控制方式：部分级控制</li>
+</ul>
 <p><strong>多级混洗交换网络的交换开关 、控制方式 、拓扑结构（填空 、选择）；</strong></p>
 <ul>
 <li>交换开关：四功能（允许实现一对多的连接）</li>
@@ -952,9 +950,26 @@
 </ul>
 <p><strong>并行存储器的无冲突访问（计算、选择、填空）</strong></p>
 <ul>
+<li>采用多体交叉存储器--增加MEM带宽</li>
+<li>对向量分组操作--解决MEM带宽小于向量带宽问</li>
 <li>选择适当的存储体数m——达到无冲突访问（冗余）</li>
 <li>一维向量：顺序存放，防止步长与m成比例（m取质数且与步长互质）</li>
-<li>多维向量：错位存放，满足行、列、对角线等方式访问；存储体数为质数，将向量变换成一维数组S，再对S进行处理</li>
+<li>多维向量：错位存放，满足行、列、对角线等方式访问；
+<ul>
+<li>当 m 大于每次访问向量元素个数时，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9247em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span></span></span></span></span></span></span></span>，同一列不同行错开距离</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，同一行不同列错开距离</li>
+<li>对<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ab</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，体号： j=(aσ1+bσ2+C) mod m 体内序号：i=a</li>
+</ul>
+</li>
+<li>当向量元素不固定，或非n×n时
+<ul>
+<li>存储体数为质数，将向量变换成一维数组 S，再对 S 进行处理</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 <h1 id="ch5-多处理机"><a class="header" href="#ch5-多处理机">CH5 多处理机</a></h1>
